@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Piece Cost",
+    "version": "0.1",
+    "description": "Shows cost per piece for LEGO sets",
+    "icons": {
+      "48": "icons/icon.png"
+    },
+    "permissions": [
+      "*://*.lego.com/*"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["*://*.lego.com/*"],
+          "js": ["main.js"]
+        }
+    ],
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "{a55b7815-ef6d-4a0d-9284-10d1ec95626c}"
+      }
+    }
+}
