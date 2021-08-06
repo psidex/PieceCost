@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Piece Cost",
     "version": "0.1",
-    "description": "Shows cost per piece for LEGO sets",
+    "description": "A simple web extension to add the cost per piece to sets on lego.com",
     "icons": {
       "48": "icons/icon.png"
     },

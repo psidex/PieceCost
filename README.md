@@ -1,8 +1,6 @@
 # Piece Cost
 
-A simple web extension to add the £ cost per Lego piece to sets on Lego's website.
-
-Currently only supports £.
+A simple web extension to add the cost per piece to sets on lego.com
 
 https://addons.mozilla.org/en-GB/firefox/addon/piece-cost/
 
