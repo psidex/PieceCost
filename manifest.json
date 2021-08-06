@@ -1,10 +1,10 @@
 {
     "manifest_version": 2,
     "name": "Piece Cost",
-    "version": "0.1",
+    "version": "0.2",
     "description": "A simple web extension to add the cost per piece to sets on lego.com",
     "icons": {
-      "48": "icons/icon.png"
+      "48": "icons/icon_48.png"
     },
     "permissions": [
       "*://*.lego.com/*"
