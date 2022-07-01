@@ -22,28 +22,25 @@ const ourSvg = `
 function insertPricePer() {
     console.log('Inserting price per piece');
 
-    const details = document.querySelector('[data-test=product-details]');
+    const details = document.querySelector('[data-test=product-attributes]');
 
     const priceElem = document.querySelector('[data-test=product-price]');
     const price = parseFloat(priceElem.innerText.split('\n')[1].substr(1));
 
-    const peiceCountInfoElem = details.querySelector('[data-test=product-details__piece-count-wrapper]');
-
-    const peiceCountElem = peiceCountInfoElem.querySelector('[data-test=product-details__piece-count]');
+    const peiceCountElem = details.querySelector('[data-test=pieces-value]').parentElement;
     const pieceCount = parseInt(peiceCountElem.innerText, 10);
-
     const pricePer = price / pieceCount;
     const pricePerStr = `£${pricePer.toFixed(decimalPlaces)}`;
 
-    const ourElem = peiceCountInfoElem.cloneNode(true);
+    const ourElem = peiceCountElem.cloneNode(true);
     ourElem.classList.add('pricePerPieceInfo');
     ourElem.querySelector('svg').innerHTML = ourSvg;
     ourElem.querySelector('svg').setAttribute('width', 40);
-    ourElem.querySelector('[data-test=product-details__piece-count]').textContent = pricePerStr;
+    ourElem.querySelector('[data-test=pieces-value]').textContent = pricePerStr;
     ourElem.children[ourElem.childElementCount - 1].textContent = 'Per Piece';
 
-    // Insert after peiceCountInfoElem by inserting before next element.
-    details.insertBefore(ourElem, peiceCountInfoElem.nextElementSibling);
+    // Insert after peiceCountElem by inserting before next element.
+    details.insertBefore(ourElem, peiceCountElem.nextElementSibling);
 }
 
 const main = () => {
@@ -58,7 +55,7 @@ window.addEventListener('load', main);
 
 const observer = new MutationObserver((() => {
     if (document.querySelector('.pricePerPieceInfo') === null) {
-        const pieces = document.querySelector('[data-test=product-details__piece-count-wrapper]');
+        const pieces = document.querySelector('[data-test=pieces-value]').parentElement;
         if (pieces !== null && pieces.innerText !== '') {
             main();
         }
